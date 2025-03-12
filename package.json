@@ -1,7 +1,7 @@
 {
   "name": "chatbot-server",
   "version": "1.0.0",
-  "main": "server/server.js",
+  "main": "api/server.js",
   "dependencies": {
     "@google/generative-ai": "^0.23.0",
     "dotenv": "^16.4.7",
@@ -11,6 +11,6 @@
     "yahoo-finance2": "^2.13.3"
   },
   "scripts": {
-    "start": "node server/server.js"
+    "start": "node api/server.js"
   }
 }
