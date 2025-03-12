@@ -12,5 +12,18 @@
   },
   "scripts": {
     "start": "node server/server.js"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Atharv3808/chatbotcloneapp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Atharv3808/chatbotcloneapp/issues"
+  },
+  "homepage": "https://github.com/Atharv3808/chatbotcloneapp#readme",
+  "description": ""
 }
