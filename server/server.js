@@ -19,7 +19,7 @@ console.log(`Environment Variables Loaded:`, process.env); // Log all environmen
 const genAI = new GoogleGenerativeAI(API_KEY);
 
 app.use(express.json());
-app.use(express.static('public'));
+app.use(express.static('public')); // Serve static files from the public directory
 
 // Load Knowledge File
 let knowledge = {};
@@ -54,7 +54,7 @@ async function getStockPrice(symbol) {
 }
 
 // Chat API Route
-app.post('/api/chat', async (req, res) => {
+app.post('/api/chat', async (req, res) => { // Chat API endpoint
     try {
         console.log('💬 Received message:', req.body.message);
 
