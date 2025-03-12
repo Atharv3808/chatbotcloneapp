@@ -15,7 +15,7 @@ if (API_KEY === 'AIzaSyAwDsihffOVlRjO3lTry7DsybcGa2-z9zY') {
 console.log(`API Key Loaded: ${API_KEY}`); // For debugging purposes
 console.log(`Current Working Directory: ${process.cwd()}`); // Log current working directory for debugging
 console.log(`Environment Variables Loaded:`, process.env); // Log all environment variables for debugging
-console.log(`Environment Variables Loaded:`, process.env); // Log all environment variables for debugging
+
 const genAI = new GoogleGenerativeAI(API_KEY);
 
 app.use(express.json());
@@ -87,7 +87,8 @@ app.post('/api/chat', async (req, res) => {
             const stockData = await getStockPrice(stockSymbol);
 
             if (stockData.error) {
-                return res.json({ reply: `⚠️ ${stockData.error}` });
+                console.error(`Stock Price Error: ${stockData.error}`);
+                return res.status(400).json({ reply: `⚠️ ${stockData.error}` });
             }
 
             return res.json({ 
@@ -115,7 +116,7 @@ app.post('/api/chat', async (req, res) => {
         console.error('❌ Chat Error:', error);
         res.status(500).json({ 
             error: 'Failed to get response from AI',
-            details: error.message 
+            details: error.message || 'An unexpected error occurred' 
         });
     }
 });
